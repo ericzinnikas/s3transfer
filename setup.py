@@ -9,13 +9,6 @@ from setuptools import setup, find_packages
 ROOT = os.path.dirname(__file__)
 VERSION_RE = re.compile(r'''__version__ = ['"]([0-9.]+)['"]''')
 
-
-requires = [
-    'botocore>=1.12.36,<2.0.0',
-    'futures>=2.2.0,<4.0.0; python_version < 3.6',
-]
-
-
 def get_version():
     init = open(os.path.join(ROOT, 's3transfer', '__init__.py')).read()
     return VERSION_RE.search(init).group(1)
@@ -31,7 +24,6 @@ setup(
     url='https://github.com/boto/s3transfer',
     packages=find_packages(exclude=['tests*']),
     include_package_data=True,
-    install_requires=requires,
     license="Apache License 2.0",
     classifiers=(
         'Development Status :: 3 - Alpha',
